@@ -1,9 +1,0 @@
-sudo sed 's/dhcp/static/g' /etc/dhcp/dhcpd.conf
-
-sudo cat >> /etc/network/interfaces << EOF
-
-
-    address 192.168.0.2
-    gateway 192.168.0.0
-    netmask 255.255.255.0
-EOF
