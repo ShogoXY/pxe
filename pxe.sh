@@ -30,7 +30,7 @@ done
 
 echo "done"
 
-sudo apt install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux git vim
+sudo apt install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux git vim network-manager
 
 
 
@@ -88,4 +88,5 @@ echo "w tym celu należy edytować plik"
 echo ""
 echo "/etc/default/isc-dhcp-server"
 echo ""
+nmcli device show
 read -p "Naciśnij [Enter] aby zakończyć..."
