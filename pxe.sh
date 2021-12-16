@@ -20,7 +20,7 @@ echo "/etc/default/isc-dhcp-server"
 echo ""
 echo "Instalacja potrzebnych składników"
 echo "oraz uruchmienie skryptu rozpocznie się za 30 sec ..."
-echo""
+echo ""
 
 for (( i=30; i>0; i--)); do
   sleep 1 &
@@ -30,7 +30,7 @@ done
 
 echo "done"
 
-sudo apt install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux git -y
+sudo apt install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux nmtui git -y
 
 
 
