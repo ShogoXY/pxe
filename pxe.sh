@@ -30,7 +30,7 @@ done
 
 echo "done"
 
-sudo apt install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux nmtui git vim
+sudo apt install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux git vim
 
 
 
