@@ -63,7 +63,8 @@ wget -P /home/$USER/ https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/d
 sudo mkdir /srv/tftp/debian11
 sudo mount /home/$USER/debian-11.1.0-amd64-netinst.iso /mnt
 sudo cp -rv /mnt/* /srv/tftp/debian11/
-rm /home/$USER/debian-11.1.0-amd64-netinst.iso
+sudo umount /mnt
+sudo rm /home/$USER/debian-11.1.0-amd64-netinst.iso
 
 sudo wget --output-document=/srv/tftp/pxelinux.cfg/default https://raw.githubusercontent.com/ShogoXY/fedora/main/default_bios
 sudo wget --output-document=/srv/tftp/efi64/pxelinux.cfg/default https://raw.githubusercontent.com/ShogoXY/fedora/main/default_efi64
