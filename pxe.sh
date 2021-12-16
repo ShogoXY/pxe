@@ -90,4 +90,27 @@ echo ""
 echo "/etc/default/isc-dhcp-server"
 echo ""
 nmcli device show
+
+echo ""
+echo "Czy chcesz automatycznie nadać adres statyczny"
+echo "może to powodować błędy"
+echo ""
+read -r -p "Jesteś pewien? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])[tT]$ ]]
+then
+    sudo sed 's/dhcp/static/g' /etc/dhcp/dhcpd.conf
+
+    sudo cat >> /etc/network/interfaces << EOF
+
+
+        address 192.168.0.2
+        gateway 192.168.0.0
+        netmask 255.255.255.0
+    EOF
+    sudo nano /etc/default/isc-dhcp-server
+    
+else
+    echo " Pamiętaj o zmianie adresu IP oraz nasłuchiwaniu"
+fi
+
 read -p "Naciśnij [Enter] aby zakończyć..."
