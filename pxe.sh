@@ -52,7 +52,7 @@ sudo cp -v /usr/lib/syslinux/modules/bios/libutil.c32 /srv/tftp
 sudo cp -v /usr/lib/syslinux/modules/bios/menu.c32 /srv/tftp
 
 
-sudo cp -v /usr/lib/SYSLINUX.EFI/syslinux.efi /srv/tftpboot
+sudo cp -v /usr/lib/SYSLINUX.EFI/efi64/syslinux.efi /srv/tftpboot
 sudo cp -v /usr/lib/syslinux/modules/efi64/ldlinux.e64 /srv/tftp
 sudo cp -v /usr/lib/syslinux/modules/efi64/libutil.c32 /srv/tftp
 sudo cp -v /usr/lib/syslinux/modules/efi64/menu.c32 /srv/tftp
@@ -72,8 +72,7 @@ sudo wget --output-document=/srv/tftp/efi64/pxelinux.cfg/default https://raw.git
 
 
 
-sudo systemctl restart isc-dhcp-server.service 
-sudo systemctl restart tftpd-hpa.service 
+
 
 echo""
 echo""
@@ -114,3 +113,5 @@ else
 fi
 
 read -p "Naciśnij [Enter] aby zakończyć..."
+sudo systemctl restart isc-dhcp-server.service 
+sudo systemctl restart tftpd-hpa.service 
