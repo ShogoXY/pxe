@@ -1,4 +1,4 @@
-!#/bin/bash
+
 #skrypt dla konfiguracji PXE
 
 
@@ -30,7 +30,7 @@ done
 
 echo "done"
 
-sudo apt install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux nmtui git -y
+sudo apt install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux nmtui git vim
 
 
 
