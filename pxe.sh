@@ -95,9 +95,9 @@ echo "Czy chcesz automatycznie nadać adres statyczny"
 echo "może to powodować błędy"
 echo ""
 read -r -p "Jesteś pewien? [y/N] " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])[tT]$ ]]
+if [[ "$response" =~ ^([yY][eE][sS]|[yY]|[tT])$ ]]
 then
-    sudo sed 's/dhcp/static/g' /etc/dhcp/dhcpd.conf
+    sudo sed 's/dhcp/static/g' /etc/network/interfaces
 
     sudo cat >> /etc/network/interfaces << EOF
 
