@@ -1,6 +1,6 @@
-
+!#/bin/sh
 #skrypt dla konfiguracji PXE
-
+exec > >(tee /home/$USER/log.txt)
 
 clear
 echo ""
@@ -19,16 +19,11 @@ echo ""
 echo "/etc/default/isc-dhcp-server"
 echo ""
 echo "Instalacja potrzebnych składników"
-echo "oraz uruchmienie skryptu rozpocznie się za 30 sec ..."
+echo "oraz uruchmienie skryptu"
+echo 
 echo ""
-
-for (( i=30; i>0; i--)); do
-  sleep 1 &
-  printf "  $i \r"
-  wait
-done
-
-echo "done"
+echo "Naciśnij dowolny klawisz aby kontynuować ..."
+read -n 1 -s -r -p  ""
 
 sudo apt install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux git vim network-manager
 
@@ -94,7 +89,8 @@ echo ""
 echo "Czy chcesz automatycznie nadać adres statyczny"
 echo "może to powodować błędy"
 echo ""
-read -r -p "Jesteś pewien? [y/N] " response
+echo "Jesteś pewien? [y/N] "
+read -r -p " " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY]|[tT])$ ]]
 then
 sudo -s <<EOF
@@ -110,15 +106,18 @@ sudo cat >> /etc/network/interfaces << EOF1
 EOF1
 EOF
 echo ""
+echo "adres zmieniony"
+echo ""
+cat /etc/network/interface
 echo "pamiętaj by ustawić port nasłuchiwania w"
 echo ""
 echo "/etc/default/isc-dhcp-server"
 echo""
-  read -r -p "Czy chcesz zrobić to teraz? [y/N] " response
+echo "Czy chcesz zrobić to teraz? [y/N] "
+  read -r -p " " response
   if [[ "$response" =~ ^([yY][eE][sS]|[yY]|[tT])$ ]]
   then
 
-    cat /etc/network/interface
 
     sudo nano /etc/default/isc-dhcp-server
   fi
@@ -132,5 +131,7 @@ else
 fi
 
 read -p "Naciśnij [Enter] aby zakończyć..."
+
+
 sudo systemctl restart isc-dhcp-server.service 
 sudo systemctl restart tftpd-hpa.service 
