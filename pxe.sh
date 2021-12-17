@@ -97,19 +97,38 @@ echo ""
 read -r -p "Jesteś pewien? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY]|[tT])$ ]]
 then
-    sudo sed 's/dhcp/static/g' /etc/network/interfaces
+sudo -s <<EOF
+sudo cp /etc/network/interfaces /etc/network/interfaces.bak
 
-    sudo cat >> /etc/network/interfaces << EOF
+sudo sed -i 's/dhcp/static/g' /etc/network/interfaces
 
+sudo cat >> /etc/network/interfaces << EOF1
 
-        address 192.168.0.2
-        gateway 192.168.0.0
-        netmask 255.255.255.0
-    EOF
+    address 192.168.0.2
+    gateway 192.168.0.0
+    netmask 255.255.255.0
+EOF1
+EOF
+echo ""
+echo "pamiętaj by ustawić port nasłuchiwania w"
+echo ""
+echo "/etc/default/isc-dhcp-server"
+echo""
+  read -r -p "Czy chcesz zrobić to teraz? [y/N] " response
+  if [[ "$response" =~ ^([yY][eE][sS]|[yY]|[tT])$ ]]
+  then
+
+    cat /etc/network/interface
+
     sudo nano /etc/default/isc-dhcp-server
-    
+  fi
+
 else
-    echo " Pamiętaj o zmianie adresu IP oraz nasłuchiwaniu"
+    echo ""
+    echo " Pamiętaj o zmianie adresu IP oraz nasłuchiwaniu w:"
+    echo ""
+    echo "/etc/default/isc-dhcp-server"
+    echo ""
 fi
 
 read -p "Naciśnij [Enter] aby zakończyć..."
