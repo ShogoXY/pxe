@@ -228,6 +228,7 @@ sudo systemctl status isc-dhcp-server.service
 
 echo ""
 echo ""
+echo "log skryptu zapisany w /home/$USER/log.txt"
 echo ""
 
 echo "należy uruchomić ponownie maszynę"
