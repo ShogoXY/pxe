@@ -213,13 +213,13 @@ fi
 
 sudo ifdown $nn
 echo ""
-echo "Odczekaj 10 sec"
-sleep 10
+sleep 5
 sudo ifup $nn
 
 read -p "Naciśnij [Enter] aby zakończyć..."
-echo "należy uruchomić ponownie maszynę"
+#echo "należy uruchomić ponownie maszynę"
 
+sudo systemctl restart networking.service
 
 sudo systemctl restart isc-dhcp-server.service 
 sudo systemctl restart tftpd-hpa.service 
@@ -231,14 +231,14 @@ echo ""
 echo "log skryptu zapisany w /home/$USER/log.txt"
 echo ""
 
-echo "należy uruchomić ponownie maszynę"
-echo ""
-echo "Czy chcesz to teraz zrobić [y/N]"
-read -r -p " " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY]|[tT])$ ]]
-   then
-   sudo reboot
-   else
-   echo "uruchom maszynę później"
-fi
+#echo "należy uruchomić ponownie maszynę"
+#echo ""
+#echo "Czy chcesz to teraz zrobić [y/N]"
+#read -r -p " " response
+#if [[ "$response" =~ ^([yY][eE][sS]|[yY]|[tT])$ ]]
+#   then
+#   sudo reboot
+#   else
+#   echo "uruchom maszynę później"
+#fi
 
