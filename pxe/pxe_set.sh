@@ -198,6 +198,8 @@ INTERFACESv6=""
 
 EOF5
 EOT
+
+sudo cat /etc/default/isc-dhcp-server |tail -4
    fi
 
     else
@@ -216,8 +218,26 @@ sleep 10
 sudo ifup $nn
 
 read -p "Naciśnij [Enter] aby zakończyć..."
+echo "należy uruchomić ponownie maszynę"
 
 
 sudo systemctl restart isc-dhcp-server.service 
 sudo systemctl restart tftpd-hpa.service 
 sudo systemctl status isc-dhcp-server.service 
+
+
+echo ""
+echo ""
+echo ""
+
+echo "należy uruchomić ponownie maszynę"
+echo ""
+echo "Czy chcesz to teraz zrobić [y/N]"
+read -r -p " " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY]|[tT])$ ]]
+   then
+   sudo reboot
+   else
+   echo "uruchom maszynę później"
+fi
+
