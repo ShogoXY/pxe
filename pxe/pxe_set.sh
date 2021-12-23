@@ -210,7 +210,9 @@ fi
 
 
 sudo ifdown $nn
-sleep 5
+echo ""
+echo "Odczekaj 10 sec"
+sleep 10
 sudo ifup $nn
 
 read -p "Naciśnij [Enter] aby zakończyć..."
@@ -218,3 +220,4 @@ read -p "Naciśnij [Enter] aby zakończyć..."
 
 sudo systemctl restart isc-dhcp-server.service 
 sudo systemctl restart tftpd-hpa.service 
+sudo systemctl status isc-dhcp-server.service 
