@@ -31,7 +31,7 @@ read -n 1 -s -r -p  ""
 
 
 sudo apt-get update
-sudo apt-get install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux git vim network-manager
+sudo apt-get install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux
 
 
 filedhcp=/etc/dhcp/dhcpd.conf.bak
