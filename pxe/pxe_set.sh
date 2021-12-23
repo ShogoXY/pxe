@@ -66,11 +66,11 @@ sudo cp -v /usr/lib/syslinux/modules/bios/libutil.c32 /srv/tftp
 sudo cp -v /usr/lib/syslinux/modules/bios/menu.c32 /srv/tftp
 
 
-sudo cp -v /usr/lib/SYSLINUX.EFI/efi64/syslinux.efi /srv/tftpboot
-sudo cp -v /usr/lib/syslinux/modules/efi64/ldlinux.e64 /srv/tftp
-sudo cp -v /usr/lib/syslinux/modules/efi64/libutil.c32 /srv/tftp
-sudo cp -v /usr/lib/syslinux/modules/efi64/menu.c32 /srv/tftp
-sudo cp -v /usr/lib/syslinux/modules/efi64/libcom32.c32 /srv/tftp
+sudo cp -v /usr/lib/SYSLINUX.EFI/efi64/syslinux.efi /srv/tftp
+sudo cp -v /usr/lib/syslinux/modules/efi64/ldlinux.e64 /srv/tftp/efi64
+sudo cp -v /usr/lib/syslinux/modules/efi64/libutil.c32 /srv/tftp/efi64
+sudo cp -v /usr/lib/syslinux/modules/efi64/menu.c32 /srv/tftp/efi64
+sudo cp -v /usr/lib/syslinux/modules/efi64/libcom32.c32 /srv/tftp/efi64
 
 
 wget -P /home/$USER/ https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.2.0+nonfree/amd64/iso-cd/firmware-11.2.0-amd64-netinst.iso
