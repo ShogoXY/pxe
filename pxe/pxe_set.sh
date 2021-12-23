@@ -66,7 +66,7 @@ sudo cp -v /usr/lib/syslinux/modules/bios/libutil.c32 /srv/tftp
 sudo cp -v /usr/lib/syslinux/modules/bios/menu.c32 /srv/tftp
 
 
-sudo cp -v /usr/lib/SYSLINUX.EFI/efi64/syslinux.efi /srv/tftp
+sudo cp -v /usr/lib/SYSLINUX.EFI/efi64/syslinux.efi /srv/tftp/efi64
 sudo cp -v /usr/lib/syslinux/modules/efi64/ldlinux.e64 /srv/tftp/efi64
 sudo cp -v /usr/lib/syslinux/modules/efi64/libutil.c32 /srv/tftp/efi64
 sudo cp -v /usr/lib/syslinux/modules/efi64/menu.c32 /srv/tftp/efi64
