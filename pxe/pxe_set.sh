@@ -82,8 +82,8 @@ sudo rm /home/$USER/firmware-11.2.0-amd64-netinst.iso
 
 sudo wget --output-document=/srv/tftp/pxelinux.cfg/default https://raw.githubusercontent.com/ShogoXY/fedora/main/default_bios
 sudo wget --output-document=/srv/tftp/efi64/pxelinux.cfg/default https://raw.githubusercontent.com/ShogoXY/fedora/main/default_efi64
-
-
+sudo ln /srv/tftp/efi64/pxelinux.cfg/default /srv/tftp/uefi_menu_edit
+sudo ln /srv/tftp/pxelinux.cfg/default /srv/tftp/bios_menu_edit
 
 
 
@@ -230,6 +230,10 @@ echo ""
 echo ""
 echo "log skryptu zapisany w /home/$USER/log.txt"
 echo ""
+echo "by edytować menu można zkożystać z :"
+echo "/srv/tftp/uefi_menu_edit"
+echo "oraz"
+echo "/srv/tftp/bios_menu_edit"
 
 #echo "należy uruchomić ponownie maszynę"
 #echo ""
