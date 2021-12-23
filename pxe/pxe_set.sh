@@ -60,7 +60,7 @@ sudo mkdir -p /srv/tftp/pxelinux.cfg
 sudo mkdir -p /srv/tftp/efi64
 sudo mkdir -p /srv/tftp/efi64/pxelinux.cfg
 
-sudo cp -v /usr/lib/PXELINUX/pxelinux.0 /srv/tftpboot
+sudo cp -v /usr/lib/PXELINUX/pxelinux.0 /srv/tftp
 sudo cp -v /usr/lib/syslinux/modules/bios/ldlinux.c32 /srv/tftp
 sudo cp -v /usr/lib/syslinux/modules/bios/libutil.c32 /srv/tftp
 sudo cp -v /usr/lib/syslinux/modules/bios/menu.c32 /srv/tftp
