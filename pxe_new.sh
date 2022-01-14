@@ -29,7 +29,7 @@ read -n 1 -s -r -p  ""
 
 
 sudo apt-get update
-sudo apt-get -y install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux network-manager gcp
+sudo apt-get -y install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux network-manager gcp lighttpd nfs-kernel-server
 
 
 filedhcp=/etc/dhcp/dhcpd.conf.bak
