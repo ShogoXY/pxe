@@ -73,8 +73,7 @@ sudo gcp -rf /usr/lib/syslinux/modules/efi64/libcom32.c32 /srv/tftp/efi64
 debian1=https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/11.2.0+nonfree/amd64/iso-cd/firmware-11.2.0-amd64-netinst.iso
 debian2=https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.2.0-amd64-netinst.iso
 
-echo "proszę wybrać obraz do pobrania"
-echo "podająć jego numer"
+echo ""
 echo ""
 echo "Podstawowa wersja Debiana"
 echo "1. debian-11.2.0-amd64-netinst.iso"
@@ -83,6 +82,9 @@ echo "Wersja zawierające non-free repository"
 echo "2. firmware-11.2.0-amd64-netinst.iso"
 echo ""
 echo ""
+echo "Proszę wybrać obraz do pobrania"
+echo "podająć jego numer"
+
 #read -p "" deb
 
 while read -r deb
