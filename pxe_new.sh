@@ -29,7 +29,7 @@ read -n 1 -s -r -p  ""
 
 
 sudo apt-get update
-sudo apt-get -y install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux network-manager gcp lighttpd nfs-kernel-server
+sudo apt-get -y install syslinux-common syslinux-efi isc-dhcp-server tftpd-hpa pxelinux network-manager gcp lighttpd nfs-kernel-server ufw
 
 
 filedhcp=/etc/dhcp/dhcpd.conf.bak
@@ -241,7 +241,9 @@ EOF5
 EOT
 
 sudo cat /etc/default/isc-dhcp-server |tail -4
-   
+sed -i -e 's|/var/www/html"/srv/tftp"g' /etc/lighttpd/lighttpd.conf    
+sed -i -e 's/RPCMOUNTDOPTS/#RPCMOUNTDOPTS/g' /etc/default/nfs-kernel-server
+sed -i -e '/#RPCMOUNTDOPTS/a RPCMOUNTDOPTS="-p 40000"' /etc/default/nfs-kernel-server
 
 else
         echo ""
