@@ -108,6 +108,8 @@ done
 
 
 sudo mkdir -p /srv/tftp/debian11
+sudo mkdir -p /srv/tftp/iso
+sudo mkdir -p /srv/tftp/iso/debian
 sudo mount /home/$USER/debian.iso /mnt
 sudo gcp -rf /mnt/* /srv/tftp/debian11/
 sudo umount /mnt
@@ -244,6 +246,7 @@ sudo cat /etc/default/isc-dhcp-server |tail -4
 sed -i -e 's|/var/www/html"/srv/tftp"g' /etc/lighttpd/lighttpd.conf    
 sed -i -e 's/RPCMOUNTDOPTS/#RPCMOUNTDOPTS/g' /etc/default/nfs-kernel-server
 sed -i -e '/#RPCMOUNTDOPTS/a RPCMOUNTDOPTS="-p 40000"' /etc/default/nfs-kernel-server
+echo "/srv/tftp/iso	192.168.0.0/24(ro,no_root_squash,no_subtree_check)" >> /etc/exports
 
 else
         echo ""
