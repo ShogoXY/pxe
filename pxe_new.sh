@@ -111,7 +111,7 @@ sudo mkdir -p /srv/tftp/debian11
 sudo mkdir -p /srv/tftp/iso
 sudo mkdir -p /srv/tftp/iso/debian
 sudo mount /home/$USER/debian.iso /mnt
-sudo gcp -rf /mnt/* /srv/tftp/debian11/
+sudo gcp -rf /mnt/. /srv/tftp/debian11/
 sudo umount /mnt
 sudo rm /home/$USER/debian.iso
 
