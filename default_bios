@@ -1,0 +1,42 @@
+UI menu.c32
+MENU INDENT count
+MENU TITLE Server PXE
+PROMPT 1
+MENU RESOLUTION 1024 768
+
+
+LABEL Debian net
+        MENU LABEL Debian
+        KERNEL debian11/install.amd/vmlinuz
+        append initrd=debian11/install.amd/initrd.gz
+	TEXT HELP
+		Debian netboot using TFTP
+	ENDTEXT
+
+
+LABEL debian iso
+	MENU LABEL ^debian iso
+	KERNEL iso/debian_xfce/live/vmlinuz-5.10.0-10-amd64
+	APPEND initrd=iso/debian_xfce/live/initrd.img-5.10.0-10-amd64 nfsroot=192.168.0.2:/srv/tftp/iso/debian_xfce/ ro netboot=nfs vga=0x317 boot=live ip=dhcp ---
+	TEXT HELP
+		Debian Live iso using TFTP
+	ENDTEXT
+
+LABEL UBUNTU iso
+	MENU LABEL UBUNTU iso
+	menu default
+	KERNEL iso/ubuntu/casper/vmlinuz
+	APPEND initrd=iso/ubuntu/casper/initrd nfsroot=192.168.0.2:/srv/tftp/iso/ubuntu/ ro netboot=nfs vga=0x317 boot=casper ip=dhcp splash toram ---
+	TEXT HELP
+		Ubuntu Live iso using TFTP
+	ENDTEXT
+
+LABEL Fedora x64
+  	MENU label Fedora 
+	  MENU default
+  	KERNEL iso/fedora/mnt/images/pxeboot/vmlinuz
+	  APPEND initrd=iso/fedora/mnt/images/pxeboot//initrd.img root=live:http://192.168.0.2/iso/fedora/mnt/LiveOS/squashfs.img ro rd.live.image rd.lvm=0 rd.luks=0 rd.md=0 rd.dm=0 vga=794
+    TEXT HELP
+        Boot to Fedora Workstation Live
+        User: liveuser
+    ENDTEXT
