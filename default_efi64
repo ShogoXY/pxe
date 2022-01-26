@@ -1,0 +1,46 @@
+UI menu.c32
+TIMEOUT 50
+PROMPT 0
+MENU TITLE Server PXE
+#PROMPT 1 
+LABEL Debian net
+        MENU LABEL ^1. Debian
+        KERNEL ::debian11/install.amd/vmlinuz
+        APPEND initrd=::debian11/install.amd/initrd.gz
+	TEXT HELP
+		Debian 11 netboot iso using TFTP it may be slow
+	ENDTEXT
+
+LABEL Debian Http
+	MENU LABEL ^2. Debian via HTTPS
+        KERNEL http://192.168.0.2/debian11/install.amd/vmlinuz
+        APPEND initrd=http://192.168.0.2/debian11/install.amd/initrd.gz
+	TEXT HELP
+		Debian 11 netboot iso using HTTP
+	ENDTEXT
+
+
+LABEL debian iso
+	MENU LABEL ^3. Debian Live ISO
+	KERNEL http://192.168.0.2/iso/debian_xfce/live/vmlinuz-5.10.0-10-amd64
+	APPEND initrd=http://192.168.0.2/iso/debian_xfce/live/initrd.img-5.10.0-10-amd64 nfsroot=192.168.0.2:/srv/tftp/iso/debian_xfce/ ro netboot=nfs boot=live ip=dhcp ---
+	TEXT HELP
+		Debian 11 XFCE Live iso using HTTP
+	ENDTEXT
+
+LABEL ubuntu iso
+	MENU LABEL ^4. Ubuntu
+	KERNEL http://192.168.0.2/iso/ubuntu/casper/vmlinuz
+	APPEND initrd=http://192.168.0.2/iso/ubuntu/casper/initrd nfsroot=192.168.0.2:/srv/tftp/iso/ubuntu/ ro netboot=nfs boot=casper locale=pl_PL console-setup/layoutcode=pl ip=dhcp quaiet splash---
+	TEXT HELP
+		Ubuntu 20.04 Desktop Live iso  
+	ENDTEXT
+
+LABEL fedora iso
+	MENU LABEL ^5. Fedora
+	MENU default
+	KERNEL http://192.168.0.2/iso/fedora/mnt/images/pxeboot/vmlinuz
+	APPEND initrd=http://192.168.0.2/iso/fedora/mnt/images/pxeboot/initrd.img root=live:http://192.168.0.2/iso/fedora/mnt/LiveOS/squashfs.img ip=dhcp rd.live.image 
+	TEXT HELP
+		Fedora 35 Workstation Live iso
+	ENDTEXT
